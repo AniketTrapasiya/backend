@@ -36,7 +36,7 @@ this.salt = crypto.randomBytes(16).toString('hex');
  
 this.hash = crypto.pbkdf2Sync(req.body.password, this.salt,  
 1000, 64, `sha512`).toString(`hex`); 
-   user = {
+   user = await User.create( {
         
         name: req.body.name,
         email: req.body.email,
@@ -45,7 +45,7 @@ this.hash = crypto.pbkdf2Sync(req.body.password, this.salt,
         phonenumber: req.body.phonenumber,
 
         
-      }
+      })
       //.then(user => res.json(user))
        // .catch(err=> {console.log(err)
    // res.json({error: 'please enter uniqe value for email'})})
