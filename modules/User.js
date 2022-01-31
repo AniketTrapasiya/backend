@@ -17,6 +17,10 @@ const UserSchema = new Schema({
         type: String,
         require: true
     },
+    phonenumber:{
+        type: String,
+        require: true
+    },
     date:{
         type: Date,
         default: Date.now
